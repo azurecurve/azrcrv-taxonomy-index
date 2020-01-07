@@ -29,6 +29,9 @@ To install the Taxonomy Index plugin:
 
 == Changelog ==
 Changes and feature additions for the Taxonomy Index plugin:
+= 1.0.1 =
+* Update azurecurve menu for easier maintenance.
+* Move require of azurecurve menu below security check.
 = 1.0.0 =
 * First version for ClassicPress forked from azurecurve Taxonomy Index WordPress Plugin.
 
