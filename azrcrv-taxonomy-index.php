@@ -3,7 +3,7 @@
  * ------------------------------------------------------------------------------
  * Plugin Name: Taxonomy Index
  * Description: Displays Index of Categories/Tags or other taxonomy types using taxonomy-index Shortcode.
- * Version: 1.0.1
+ * Version: 1.1.0
  * Author: azurecurve
  * Author URI: https://development.azurecurve.co.uk/classicpress-plugins/
  * Plugin URI: https://development.azurecurve.co.uk/classicpress-plugins/taxonomy-index
@@ -24,6 +24,10 @@ if (!defined('ABSPATH')){
 
 // include plugin menu
 require_once(dirname( __FILE__).'/pluginmenu/menu.php');
+register_activation_hook(__FILE__, 'azrcrv_create_plugin_menu_ti');
+
+// include update client
+require_once(dirname(__FILE__).'/libraries/updateclient/UpdateClient.class.php');
 
 /**
  * Setup registration activation hook, actions, filters and shortcodes.
@@ -36,6 +40,7 @@ require_once(dirname( __FILE__).'/pluginmenu/menu.php');
 add_action('admin_menu', 'azrcrv_ti_create_admin_menu');
 add_action('admin_enqueue_scripts', 'azrcrv_ti_load_css');
 //add_action('the_posts', 'azrcrv_ti_check_for_shortcode');
+add_action('plugins_loaded', 'azrcrv_ti_load_languages');
 
 // add filters
 add_filter('plugin_action_links', 'azrcrv_ti_add_plugin_action_link', 10, 2);
@@ -43,6 +48,17 @@ add_filter('plugin_action_links', 'azrcrv_ti_add_plugin_action_link', 10, 2);
 // add shortcodes
 add_shortcode('taxonomy-index', 'azrcrv_ti_display_index');
 add_shortcode('TAXONOMY-INDEX', 'azrcrv_ti_display_index');
+
+/**
+ * Load language files.
+ *
+ * @since 1.0.0
+ *
+ */
+function azrcrv_ti_load_languages() {
+    $plugin_rel_path = basename(dirname(__FILE__)).'/languages';
+    load_plugin_textdomain('azrcrv-ti', false, $plugin_rel_path);
+}
 
 /**
  * Check if shortcode on current page and then load css and jqeury.
@@ -144,7 +160,7 @@ function azrcrv_ti_display_options(){
 	$options = get_option('azrcrv-ti');
 	?>
 	<div id="azrcrv-ti-general" class="wrap">
-		<h2><?php echo esc_html(get_admin_page_title()); ?></h2>
+		<h1><?php echo esc_html(get_admin_page_title()); ?></h1>
 		<p>
 			<?php esc_html_e('Displays Index of Categories/Tags or other taxonomy types using taxonomy-index Shortcode. This plugin is multi-site compatible.', 'taxonomy-index'); ?>
 		</p>
