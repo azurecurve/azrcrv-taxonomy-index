@@ -3,7 +3,7 @@
  * ------------------------------------------------------------------------------
  * Plugin Name: Taxonomy Index
  * Description: Displays Index of Categories/Tags or other taxonomy types using taxonomy-index Shortcode.
- * Version: 1.1.3
+ * Version: 1.1.4
  * Author: azurecurve
  * Author URI: https://development.azurecurve.co.uk/classicpress-plugins/
  * Plugin URI: https://development.azurecurve.co.uk/classicpress-plugins/taxonomy-index/
@@ -24,7 +24,7 @@ if (!defined('ABSPATH')){
 
 // include plugin menu
 require_once(dirname( __FILE__).'/pluginmenu/menu.php');
-register_activation_hook(__FILE__, 'azrcrv_create_plugin_menu_ti');
+add_action('admin_init', 'azrcrv_create_plugin_menu_ti');
 
 // include update client
 require_once(dirname(__FILE__).'/libraries/updateclient/UpdateClient.class.php');

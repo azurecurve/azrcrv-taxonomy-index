@@ -1,12 +1,12 @@
 === Taxonomy Index ===
 
 Description:	Displays index of Categories/Tags or other taxonomy types using taxonomy-index Shortcode.
-Version:		1.1.3
+Version:		1.1.4
 Tags:			posts, archive, page, categories, tags, taxonomy, index
 Author:			azurecurve
 Author URI:		https://development.azurecurve.co.uk/
 Plugin URI:		https://development.azurecurve.co.uk/classicpress-plugins/taxonomy-index/
-Download link:	https://github.com/azurecurve/azrcrv-taxonomy-index/releases/download/v1.1.3/azrcrv-taxonomy-index.zip
+Download link:	https://github.com/azurecurve/azrcrv-taxonomy-index/releases/download/v1.1.4/azrcrv-taxonomy-index.zip
 Donate link:	https://development.azurecurve.co.uk/support-development/
 Requires PHP:	5.6
 Requires:		1.0.0
@@ -54,6 +54,10 @@ This plugin is developed for ClassicPress, but will likely work on WordPress.
 == Changelog ==
 
 # Changelog
+
+### [Version 1.1.4](https://github.com/azurecurve/azrcrv-taxonomy-index/releases/tag/v1.1.4)
+ * Fix bug with plugin menu.
+ * Update plugin menu css.
 
 ### [Version 1.1.3](https://github.com/azurecurve/azrcrv-taxonomy-index/releases/tag/v1.1.3)
  * Upgrade azurecurve plugin to store available plugins in options.
